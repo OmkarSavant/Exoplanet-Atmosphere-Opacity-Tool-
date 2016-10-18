@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="finalCSSv2.css"/> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="LiveProgramJSv1.js"></script>
+
+    <title>Exoplanet Atmosphere Interpolator</title>
+</head>
+<body>
+
+    <div id="title">
+        <h1>Exoplanet Atmosphere Interpolator</h1>
+    </div>
+
+
+    <div id="introduction"><p id="introdution"> Enter the pressure (bar) and temperature (Kelvin) that has been found in planetary atmospheres. The most abundant elements for that pressure and temperature will be presented in a bar graph and table. A graph of the wavelength v. opacity for that pressure and temperature will be shown, solely for the most abundant elements in our database. Our tool can only interpolate pressures that fall between 0.000001 bar - 10 bar and temperatures that fall between 75K - 4000K. This program runs fastest on Chrome, and may take longer on Safari and Firefox. Just enter your pressure and temperature! <b> Tip: Use fullscreen for optimal performance and press the "Refresh Page" button to enter another set of values. </b></p></div>
+
+    <!-- create good paragraph of description -->
+         <form id="pressure" style = "width: 20%">
+        Pressure [.000001 bar to 10 bar]: <input type="number" step="any" min="0" name="bar" value=" ">
+        <!-- mention something about not doing 1.0 x10^-4 but .0001 -->
+        </form>
+        <!-- <div id="pressurevalues"></div> -->
+        <form id="temperature" style = "width: 20%">
+        Temperature (Kelvin) [75K to 4000K]: <input type="number" step="any" min="0" name="kelvin" value=" ">
+        </form>
+    <!-- Have two buttons that they can press for abundances v opacity -->
+        <!-- <div id="tempvalues"></div> -->
+        <button id="interpolatebutton">Interpolate! </button><br/>
+        <button id="refreshbutton"> Refresh Page </button><br/>
+<hr></hr>
+   <div id="actualButton"><button id="five" class="five">Display first five</button>
+    <button id="ten" class="ten">Display first ten</button>
+    <button id="twentysix" class="twentysix">Display all twenty six</button></div>
+
+<div id = "myTable" class = "myTable" style = "width: 29%"> 
+    <table>
+    <thead>
+        <tr>
+              <th id="tableTitle" colspan="2"; style="color:black">Abundances of Molecules in Planetary Atmospheres at <script>$('#tableTitle').append(myPressure);</script> bar and <script>$('#tableTitle').append(myTemp);</script> K</th>
+        </tr>
+         <tr style="border-bottom:1px solid black;">
+                    <th class="tableaxis"><em>Molecule</em></th>
+                    <th class="tableaxis"><em>Abundance (% of Atmosphere)</em></th>
+         </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+
+</table>
+</div>
+
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script type="text/javascript" src="darktheme.js"></script>
+        <div id="abundsContainer" style="height:400px; width: 69%;"></div>
+        <div id="container" style="width:100%; height:400px;"></div>
+       
+      </body>
+</html>
